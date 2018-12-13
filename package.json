@@ -1,0 +1,22 @@
+{
+  "name": "tools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "snippet.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/likegun/tools.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/likegun/tools/issues"
+  },
+  "homepage": "https://github.com/likegun/tools#readme",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}
