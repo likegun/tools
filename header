@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+'use strict'
+var inquirer = require('inquirer');
+let f;
+
+function transfer(headers) {
+    const ret = [];
+    for(let header of headers.filter(e => e)) {
+        const index = header.indexOf(':');
+        ret.push(`${f}${header.slice(0, index)}${f}:${f}${header.slice(index + 1).trim()}${f}`)
+    }
+    return ret.join(',\n');
+}
+
+(async () => {
+    f = (await inquirer.prompt([{
+        type: 'list',
+        name: 'f',
+        message: '要单引号还是双引号',
+        choices: [
+            {name: '\''},
+            {name: '"'}
+        ]
+    }])).f;
+    while(true) {
+        try {
+            const h = (await inquirer.prompt([{
+                type: 'editor',
+                name: 'h',
+                message: '输入headers',
+            }])).h;
+            console.log(transfer(h.split('\n')))
+        } catch(e) {
+            console.error(e);
+        }
+    }
+})();
