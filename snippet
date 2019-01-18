@@ -6,8 +6,13 @@ if(snippetName == null) {
     console.error('请输入snippet名');
     return;
 }
+function pbcopy(data) {
+    var proc = require('child_process').spawn('pbcopy'); 
+    proc.stdin.write(data); proc.stdin.end();
+}
 request.get(repositoryUrl + snippetName, function(err, res, body) {
     if(err) return console.error(err);
     if(res.statusCode == 404) return console.error(`snippet不存在`);
-    console.log(body);
+    pbcopy(body);
+    console.log('I am done, baby !');
 });
