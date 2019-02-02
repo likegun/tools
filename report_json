@@ -1,7 +1,8 @@
 #!/usr/bin/env node
-'use strict'
+'use strict';
 const inquirer = require('inquirer');
 const _ = require('lodash');
+const $ = require('./functional');
 
 const category = {
     title: null,
@@ -14,46 +15,76 @@ function pbcopy(data) {
     proc.stdin.write(data); proc.stdin.end();
 }
 
-function transfer(titleContent ,docContent) {
-    const doc = docContent.split('\n')
-        .filter(e => e)
-        .map(row => row.split(/\s+/).filter(e => e))
-        .reduce((doc, row) => {
-            doc[row[1]] = row[0];
-            return doc;
-        }, {});
-    return titleContent.split('\n')
-        .filter(e => e)
-        .map(line => line.split(/\s+/).filter(e => e))
-        .map(titles => 
-            titles.map(title => {
-                const categoryCopy = _.cloneDeep(category);
-                _.set(categoryCopy, 'title', title);
-                _.set(categoryCopy, 'key', 
-                    _.get(doc, Object.keys(doc).find(key => key.includes(title)), '')
-                );
-                return categoryCopy;
-            })
-        );
+function splitTableToChildrens() {
+    return function(table) {
+        return table
+                .split('\n')
+                .filter(e => e)
+                .reduce((results, line, index, array) => {
+                    if(line.split(',').length > 1) _.last(results).push(line);
+                    else if(index === array.length - 1 || array[index + 1].split(',').length == 1) _.last(results).push(line);
+                    else results.push([line]);
+
+                    return results;
+                }, []);
+
+    };
+}
+
+function toCategorys(lineSpliter) {
+    return function(children) {
+        return children
+                .map(line => lineSpliter(line))
+                .reduce((categorys, titles) => 
+                    $.cat(categorys, titles.map(title => {
+                        const categoryCopy = _.cloneDeep(category);
+                        _.set(categoryCopy, 'title', title);
+                        return categoryCopy;
+                    }))
+                , []);
+    };
+}
+
+function toTableData(direction, chunkSize = 3) {
+    return function(categorys) {
+        return direction == 'vertical' ? [categorys] : _.chunk(categorys, chunkSize);
+    };
+}
+
+function toSchemas(title, key, direction, align = 'left') {
+    return function(tableData) {
+        return {
+            title,
+            direction,
+            key,
+            align,
+            tableData
+        };
+    };
 }
 
 (async () => {
-    while(true) {
-        try {
-            const titleContent = (await inquirer.prompt([{
-                type: 'editor',
-                name: 'v',
-                message: '输入所有title吧',
-            }])).v;
-            const docContent = (await inquirer.prompt([{
-                type: 'editor',
-                name: 'v',
-                message: '输入字段对应关系',
-            }])).v;
-            
-            pbcopy(JSON.stringify(transfer(titleContent, docContent), null, 2));
-        } catch(e) {
-            console.error(e);
-        }
+    try {
+        const tableString = (await inquirer.prompt([{
+            type: 'editor',
+            name: 'v',
+            message: '输入所有table吧',
+        }])).v;
+        
+        pbcopy($.pipeline(
+            tableString,
+            splitTableToChildrens(),
+            function(childrens) {
+                return childrens.map(children => $.pipeline(
+                    $.rest(children),
+                    toCategorys(line => line.split(',')),
+                    toTableData(children.length > 2 ? 'horizontal' : 'vertical'),
+                    toSchemas(_.first(children), '', children.length > 2 ? 'horizontal' : 'vertical'),
+                ));
+            },
+            _.partial(JSON.stringify, _, null, 2)
+        ));
+    } catch(e) {
+        console.error(e);
     }
 })();
