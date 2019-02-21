@@ -1,3 +1,6 @@
 [submodule "functional"]
 	path = functional
 	url = https://gitee.com/likegun/functional.git
+[submodule "node-lib"]
+	path = node-lib
+	url = https://gitee.com/likegun/node-lib.git

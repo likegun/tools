@@ -1,0 +1,273 @@
+[
+  {
+    "op": "update",
+    "ns": "credit_cloud_db.nfcs_credit_report",
+    "query": {
+      "taskId": "5c6d1d70b8700c1b656682f2"
+    },
+    "keysExamined": 0,
+    "docsExamined": 1041165,
+    "millis": 5592
+  },
+  {
+    "op": "query",
+    "ns": "credit_cloud_db.nfcs_credit_report",
+    "query": {
+      "find": "nfcs_credit_report",
+      "filter": {
+        "taskId": "5c6d1d70b8700c1b656682f2"
+      },
+      "sort": {},
+      "projection": {},
+      "limit": 1
+    },
+    "keysExamined": 0,
+    "docsExamined": 1041165,
+    "millis": 5435
+  },
+  {
+    "op": "query",
+    "ns": "credit_cloud_db.credit_x",
+    "query": {
+      "find": "credit_x",
+      "filter": {
+        "name": "魏泓锦",
+        "idcard": "120103197704110720",
+        "phone": "13323368202"
+      },
+      "ntoreturn": -1,
+      "sort": {
+        "timestamp": -1
+      }
+    },
+    "keysExamined": 0,
+    "docsExamined": 499246,
+    "millis": 759
+  },
+  {
+    "op": "query",
+    "ns": "credit_cloud_db.pacra_grayscale_stat",
+    "query": {
+      "find": "pacra_grayscale_stat",
+      "filter": {
+        "name": "徐庆奎",
+        "idcard": "410802196404274033",
+        "phone": "13839171596"
+      },
+      "ntoreturn": -1,
+      "sort": {
+        "timestamp": -1
+      }
+    },
+    "keysExamined": 0,
+    "docsExamined": 29581,
+    "millis": 695
+  },
+  {
+    "op": "query",
+    "ns": "credit_cloud_db.credit_x",
+    "query": {
+      "find": "credit_x",
+      "filter": {
+        "name": "曾林兴",
+        "phone": "13413533344",
+        "idcard": "44182119841015151X"
+      },
+      "sort": {
+        "timestamp": -1
+      },
+      "limit": 1,
+      "singleBatch": true,
+      "batchSize": 1
+    },
+    "keysExamined": 0,
+    "docsExamined": 499246,
+    "millis": 690
+  },
+  {
+    "op": "query",
+    "ns": "credit_cloud_db.pacra_grayscale_stat",
+    "query": {
+      "find": "pacra_grayscale_stat",
+      "filter": {
+        "name": "王鹏",
+        "phone": "15553456691",
+        "idcard": "370602198801245514"
+      },
+      "sort": {
+        "timestamp": -1
+      },
+      "projection": {},
+      "limit": 1
+    },
+    "keysExamined": 0,
+    "docsExamined": 29573,
+    "millis": 622
+  },
+  {
+    "op": "query",
+    "ns": "credit_cloud_db.pacra_grayscale_stat",
+    "query": {
+      "find": "pacra_grayscale_stat",
+      "filter": {
+        "taskId": "5c6d1e5a9294b21b602b9658"
+      },
+      "sort": {},
+      "projection": {},
+      "limit": 1
+    },
+    "keysExamined": 0,
+    "docsExamined": 29580,
+    "millis": 529
+  },
+  {
+    "op": "query",
+    "ns": "credit_cloud_db.credit_x",
+    "query": {
+      "find": "credit_x",
+      "filter": {
+        "taskId": "Y4xMD3N3NuZSJZgxn"
+      },
+      "projection": {},
+      "limit": 1,
+      "singleBatch": true,
+      "batchSize": 1
+    },
+    "keysExamined": 0,
+    "docsExamined": 499246,
+    "millis": 528
+  },
+  {
+    "op": "query",
+    "ns": "credit_cloud_db.pacra_grayscale_stat",
+    "query": {
+      "find": "pacra_grayscale_stat",
+      "filter": {
+        "name": "付林勇",
+        "phone": "13985596963",
+        "idcard": "512921197106050079",
+        "queryKey": null
+      },
+      "sort": {
+        "timestamp": -1
+      },
+      "limit": 1,
+      "singleBatch": true,
+      "batchSize": 1
+    },
+    "keysExamined": 0,
+    "docsExamined": 29576,
+    "millis": 439
+  },
+  {
+    "op": "query",
+    "ns": "credit_cloud_db.das_black",
+    "query": {
+      "find": "das_black",
+      "filter": {
+        "name": "彭鑫",
+        "phone": "15249186045",
+        "idcard": "612424199001283049"
+      },
+      "sort": {
+        "timestamp": -1
+      },
+      "limit": 1,
+      "singleBatch": true,
+      "batchSize": 1
+    },
+    "keysExamined": 0,
+    "docsExamined": 320216,
+    "millis": 236
+  },
+  {
+    "op": "query",
+    "ns": "credit_cloud_db.das_black",
+    "query": {
+      "find": "das_black",
+      "filter": {
+        "name": "宋冬玲",
+        "idcard": "320902198906280022",
+        "phone": "15240349982"
+      },
+      "ntoreturn": -1,
+      "sort": {
+        "timestamp": -1
+      }
+    },
+    "keysExamined": 0,
+    "docsExamined": 320230,
+    "millis": 233
+  },
+  {
+    "op": "query",
+    "ns": "credit_cloud_db.das_zhima",
+    "query": {
+      "find": "das_zhima",
+      "filter": {
+        "name": "金彦",
+        "idcard": "330602198210040034",
+        "phone": "13777821545"
+      },
+      "ntoreturn": -1,
+      "sort": {
+        "timestamp": -1
+      }
+    },
+    "keysExamined": 0,
+    "docsExamined": 267246,
+    "millis": 182
+  },
+  {
+    "op": "query",
+    "ns": "credit_cloud_db.das_black",
+    "query": {
+      "find": "das_black",
+      "filter": {
+        "taskId": "Y6hSopmebhP7a987m"
+      },
+      "projection": {},
+      "limit": 1,
+      "singleBatch": true,
+      "batchSize": 1
+    },
+    "keysExamined": 0,
+    "docsExamined": 320212,
+    "millis": 179
+  },
+  {
+    "op": "query",
+    "ns": "credit_cloud_db.das_zhima",
+    "query": {
+      "find": "das_zhima",
+      "filter": {
+        "taskId": "5c6d16d79294b21b602b95ea"
+      },
+      "sort": {},
+      "projection": {},
+      "limit": 1
+    },
+    "keysExamined": 0,
+    "docsExamined": 267242,
+    "millis": 148
+  },
+  {
+    "op": "query",
+    "ns": "credit_cloud_db.bank_credit_report",
+    "query": {
+      "find": "bank_credit_report",
+      "filter": {
+        "name": "黄城",
+        "idcard": "33900519860913001X",
+        "phone": "13588356998"
+      },
+      "ntoreturn": -1,
+      "sort": {
+        "timestamp": -1
+      }
+    },
+    "keysExamined": 54243,
+    "docsExamined": 54243,
+    "millis": 136
+  }
+]

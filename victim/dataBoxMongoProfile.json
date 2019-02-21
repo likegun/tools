@@ -1,0 +1,3858 @@
+[
+    {
+        "op": "query",
+        "ns": "box.system.profile",
+        "query": {
+            "find": "system.profile",
+            "filter": {}
+        },
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 1,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 4
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 2
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 2
+                }
+            }
+        },
+        "responseLength": 230,
+        "protocol": "op_command",
+        "millis": 177,
+        "execStats": {},
+        "ts": "2019-02-21T02:35:55.193Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.tasks",
+        "query": {
+            "find": "tasks",
+            "filter": {
+                "kind": "gxb_alipay",
+                "agent": "agent_fd",
+                "deleted": 1,
+                "step": "FINISH",
+                "opts.phone": "15272463310",
+                "opts.idcard": "429004199001132586"
+            },
+            "sort": {
+                "updated_at": -1
+            },
+            "limit": 1
+        },
+        "keysExamined": 23212,
+        "docsExamined": 23212,
+        "hasSortStage": true,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 181,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 364
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 182
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 182
+                }
+            }
+        },
+        "nreturned": 0,
+        "responseLength": 115,
+        "protocol": "op_query",
+        "millis": 102,
+        "execStats": {
+            "stage": "CACHED_PLAN",
+            "nReturned": 0,
+            "executionTimeMillisEstimate": 100,
+            "works": 1,
+            "advanced": 0,
+            "needTime": 0,
+            "needYield": 0,
+            "saveState": 181,
+            "restoreState": 181,
+            "isEOF": 1,
+            "invalidates": 0,
+            "inputStage": {
+                "stage": "SORT",
+                "nReturned": 0,
+                "executionTimeMillisEstimate": 100,
+                "works": 23215,
+                "advanced": 0,
+                "needTime": 23214,
+                "needYield": 0,
+                "saveState": 181,
+                "restoreState": 181,
+                "isEOF": 1,
+                "invalidates": 0,
+                "sortPattern": {
+                    "updated_at": -1
+                },
+                "memUsage": 0,
+                "memLimit": 33554432,
+                "limitAmount": 1,
+                "inputStage": {
+                    "stage": "SORT_KEY_GENERATOR",
+                    "nReturned": 0,
+                    "executionTimeMillisEstimate": 100,
+                    "works": 23214,
+                    "advanced": 0,
+                    "needTime": 23213,
+                    "needYield": 0,
+                    "saveState": 181,
+                    "restoreState": 181,
+                    "isEOF": 1,
+                    "invalidates": 0,
+                    "inputStage": {
+                        "stage": "FETCH",
+                        "filter": {
+                            "$and": [
+                                {
+                                    "agent": {
+                                        "$eq": "agent_fd"
+                                    }
+                                },
+                                {
+                                    "deleted": {
+                                        "$eq": 1
+                                    }
+                                },
+                                {
+                                    "opts.idcard": {
+                                        "$eq": "429004199001132586"
+                                    }
+                                },
+                                {
+                                    "opts.phone": {
+                                        "$eq": "15272463310"
+                                    }
+                                },
+                                {
+                                    "step": {
+                                        "$eq": "FINISH"
+                                    }
+                                }
+                            ]
+                        },
+                        "nReturned": 0,
+                        "executionTimeMillisEstimate": 100,
+                        "works": 23213,
+                        "advanced": 0,
+                        "needTime": 23212,
+                        "needYield": 0,
+                        "saveState": 181,
+                        "restoreState": 181,
+                        "isEOF": 1,
+                        "invalidates": 0,
+                        "docsExamined": 23212,
+                        "alreadyHasObj": 0,
+                        "inputStage": {
+                            "stage": "IXSCAN",
+                            "nReturned": 23212,
+                            "executionTimeMillisEstimate": 20,
+                            "works": 23213,
+                            "advanced": 23212,
+                            "needTime": 0,
+                            "needYield": 0,
+                            "saveState": 181,
+                            "restoreState": 181,
+                            "isEOF": 1,
+                            "invalidates": 0,
+                            "keyPattern": {
+                                "kind": 1
+                            },
+                            "indexName": "kind_1",
+                            "isMultiKey": false,
+                            "isUnique": false,
+                            "isSparse": true,
+                            "isPartial": false,
+                            "indexVersion": 1,
+                            "direction": "forward",
+                            "indexBounds": {
+                                "kind": [
+                                    "[\"gxb_alipay\", \"gxb_alipay\"]"
+                                ]
+                            },
+                            "keysExamined": 23212,
+                            "dupsTested": 0,
+                            "dupsDropped": 0,
+                            "seenInvalidated": 0
+                        }
+                    }
+                }
+            }
+        },
+        "ts": "2019-02-21T02:37:37.071Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "15043641908"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 786388,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 6143,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 12288
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            }
+        },
+        "nreturned": 0,
+        "responseLength": 115,
+        "protocol": "op_query",
+        "millis": 535,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 0,
+            "executionTimeMillisEstimate": 530,
+            "works": 786390,
+            "advanced": 0,
+            "needTime": 786389,
+            "needYield": 0,
+            "saveState": 6143,
+            "restoreState": 6143,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "15043641908"
+                    }
+                },
+                "nReturned": 0,
+                "executionTimeMillisEstimate": 520,
+                "works": 786390,
+                "advanced": 0,
+                "needTime": 786389,
+                "needYield": 0,
+                "saveState": 6143,
+                "restoreState": 6143,
+                "isEOF": 1,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 786388
+            }
+        },
+        "ts": "2019-02-21T02:41:43.659Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "15043641908"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 786389,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 6143,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 12288
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 264,
+        "protocol": "op_query",
+        "millis": 553,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 530,
+            "works": 786391,
+            "advanced": 1,
+            "needTime": 786389,
+            "needYield": 0,
+            "saveState": 6143,
+            "restoreState": 6143,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "15043641908"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 520,
+                "works": 786390,
+                "advanced": 1,
+                "needTime": 786389,
+                "needYield": 0,
+                "saveState": 6143,
+                "restoreState": 6143,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 786389
+            }
+        },
+        "ts": "2019-02-21T02:41:53.892Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "15043641908"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 786389,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 6143,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 12288
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 264,
+        "protocol": "op_query",
+        "millis": 560,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 530,
+            "works": 786391,
+            "advanced": 1,
+            "needTime": 786389,
+            "needYield": 0,
+            "saveState": 6143,
+            "restoreState": 6143,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "15043641908"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 510,
+                "works": 786390,
+                "advanced": 1,
+                "needTime": 786389,
+                "needYield": 0,
+                "saveState": 6143,
+                "restoreState": 6143,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 786389
+            }
+        },
+        "ts": "2019-02-21T02:42:06.741Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "15043641908"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 786389,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 6143,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 12288
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 264,
+        "protocol": "op_query",
+        "millis": 547,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 530,
+            "works": 786391,
+            "advanced": 1,
+            "needTime": 786389,
+            "needYield": 0,
+            "saveState": 6143,
+            "restoreState": 6143,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "15043641908"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 530,
+                "works": 786390,
+                "advanced": 1,
+                "needTime": 786389,
+                "needYield": 0,
+                "saveState": 6143,
+                "restoreState": 6143,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 786389
+            }
+        },
+        "ts": "2019-02-21T02:42:15.547Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.tasks",
+        "query": {
+            "find": "tasks",
+            "filter": {
+                "kind": "gxb_alipay",
+                "agent": "agent_fd",
+                "deleted": 1,
+                "step": "FINISH",
+                "opts.phone": "15043641908",
+                "opts.idcard": "220822199809233460"
+            },
+            "sort": {
+                "updated_at": -1
+            },
+            "limit": 1
+        },
+        "keysExamined": 23212,
+        "docsExamined": 23212,
+        "hasSortStage": true,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 181,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 364
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 182
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 182
+                }
+            }
+        },
+        "nreturned": 0,
+        "responseLength": 115,
+        "protocol": "op_query",
+        "millis": 105,
+        "execStats": {
+            "stage": "CACHED_PLAN",
+            "nReturned": 0,
+            "executionTimeMillisEstimate": 110,
+            "works": 1,
+            "advanced": 0,
+            "needTime": 0,
+            "needYield": 0,
+            "saveState": 181,
+            "restoreState": 181,
+            "isEOF": 1,
+            "invalidates": 0,
+            "inputStage": {
+                "stage": "SORT",
+                "nReturned": 0,
+                "executionTimeMillisEstimate": 110,
+                "works": 23215,
+                "advanced": 0,
+                "needTime": 23214,
+                "needYield": 0,
+                "saveState": 181,
+                "restoreState": 181,
+                "isEOF": 1,
+                "invalidates": 0,
+                "sortPattern": {
+                    "updated_at": -1
+                },
+                "memUsage": 0,
+                "memLimit": 33554432,
+                "limitAmount": 1,
+                "inputStage": {
+                    "stage": "SORT_KEY_GENERATOR",
+                    "nReturned": 0,
+                    "executionTimeMillisEstimate": 110,
+                    "works": 23214,
+                    "advanced": 0,
+                    "needTime": 23213,
+                    "needYield": 0,
+                    "saveState": 181,
+                    "restoreState": 181,
+                    "isEOF": 1,
+                    "invalidates": 0,
+                    "inputStage": {
+                        "stage": "FETCH",
+                        "filter": {
+                            "$and": [
+                                {
+                                    "agent": {
+                                        "$eq": "agent_fd"
+                                    }
+                                },
+                                {
+                                    "deleted": {
+                                        "$eq": 1
+                                    }
+                                },
+                                {
+                                    "opts.idcard": {
+                                        "$eq": "220822199809233460"
+                                    }
+                                },
+                                {
+                                    "opts.phone": {
+                                        "$eq": "15043641908"
+                                    }
+                                },
+                                {
+                                    "step": {
+                                        "$eq": "FINISH"
+                                    }
+                                }
+                            ]
+                        },
+                        "nReturned": 0,
+                        "executionTimeMillisEstimate": 110,
+                        "works": 23213,
+                        "advanced": 0,
+                        "needTime": 23212,
+                        "needYield": 0,
+                        "saveState": 181,
+                        "restoreState": 181,
+                        "isEOF": 1,
+                        "invalidates": 0,
+                        "docsExamined": 23212,
+                        "alreadyHasObj": 0,
+                        "inputStage": {
+                            "stage": "IXSCAN",
+                            "nReturned": 23212,
+                            "executionTimeMillisEstimate": 20,
+                            "works": 23213,
+                            "advanced": 23212,
+                            "needTime": 0,
+                            "needYield": 0,
+                            "saveState": 181,
+                            "restoreState": 181,
+                            "isEOF": 1,
+                            "invalidates": 0,
+                            "keyPattern": {
+                                "kind": 1
+                            },
+                            "indexName": "kind_1",
+                            "isMultiKey": false,
+                            "isUnique": false,
+                            "isSparse": true,
+                            "isPartial": false,
+                            "indexVersion": 1,
+                            "direction": "forward",
+                            "indexBounds": {
+                                "kind": [
+                                    "[\"gxb_alipay\", \"gxb_alipay\"]"
+                                ]
+                            },
+                            "keysExamined": 23212,
+                            "dupsTested": 0,
+                            "dupsDropped": 0,
+                            "seenInvalidated": 0
+                        }
+                    }
+                }
+            }
+        },
+        "ts": "2019-02-21T02:42:29.802Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "13780699276"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 353255,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 2759,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 5520
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 2760
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 2760
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 316,
+        "protocol": "op_query",
+        "millis": 211,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 190,
+            "works": 353257,
+            "advanced": 1,
+            "needTime": 353255,
+            "needYield": 0,
+            "saveState": 2759,
+            "restoreState": 2759,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "13780699276"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 190,
+                "works": 353256,
+                "advanced": 1,
+                "needTime": 353255,
+                "needYield": 0,
+                "saveState": 2759,
+                "restoreState": 2759,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 353255
+            }
+        },
+        "ts": "2019-02-21T02:42:45.118Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.tasks",
+        "query": {
+            "find": "tasks",
+            "filter": {
+                "uid": "LhzpfLqRdeqdB6M8h",
+                "agent": "agent_fd",
+                "step": {
+                    "$in": [
+                        "DOWNLOAD",
+                        "FINISH"
+                    ]
+                }
+            },
+            "sort": {
+                "updated_at": -1
+            },
+            "projection": {
+                "device": 1
+            },
+            "limit": 10
+        },
+        "keysExamined": 352411,
+        "docsExamined": 352411,
+        "hasSortStage": true,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 2753,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 5508
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 2754
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 2754
+                }
+            }
+        },
+        "nreturned": 5,
+        "responseLength": 355,
+        "protocol": "op_query",
+        "millis": 902,
+        "execStats": {
+            "stage": "PROJECTION",
+            "nReturned": 5,
+            "executionTimeMillisEstimate": 880,
+            "works": 352419,
+            "advanced": 5,
+            "needTime": 352413,
+            "needYield": 0,
+            "saveState": 2753,
+            "restoreState": 2753,
+            "isEOF": 1,
+            "invalidates": 0,
+            "transformBy": {
+                "device": 1
+            },
+            "inputStage": {
+                "stage": "SORT",
+                "nReturned": 5,
+                "executionTimeMillisEstimate": 880,
+                "works": 352419,
+                "advanced": 5,
+                "needTime": 352413,
+                "needYield": 0,
+                "saveState": 2753,
+                "restoreState": 2753,
+                "isEOF": 1,
+                "invalidates": 0,
+                "sortPattern": {
+                    "updated_at": -1
+                },
+                "memUsage": 4351,
+                "memLimit": 33554432,
+                "limitAmount": 10,
+                "inputStage": {
+                    "stage": "SORT_KEY_GENERATOR",
+                    "nReturned": 0,
+                    "executionTimeMillisEstimate": 860,
+                    "works": 352413,
+                    "advanced": 0,
+                    "needTime": 352407,
+                    "needYield": 0,
+                    "saveState": 2753,
+                    "restoreState": 2753,
+                    "isEOF": 1,
+                    "invalidates": 0,
+                    "inputStage": {
+                        "stage": "FETCH",
+                        "filter": {
+                            "$and": [
+                                {
+                                    "uid": {
+                                        "$eq": "LhzpfLqRdeqdB6M8h"
+                                    }
+                                },
+                                {
+                                    "step": {
+                                        "$in": [
+                                            "DOWNLOAD",
+                                            "FINISH"
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "nReturned": 5,
+                        "executionTimeMillisEstimate": 850,
+                        "works": 352412,
+                        "advanced": 5,
+                        "needTime": 352406,
+                        "needYield": 0,
+                        "saveState": 2753,
+                        "restoreState": 2753,
+                        "isEOF": 1,
+                        "invalidates": 0,
+                        "docsExamined": 352411,
+                        "alreadyHasObj": 0,
+                        "inputStage": {
+                            "stage": "IXSCAN",
+                            "nReturned": 352411,
+                            "executionTimeMillisEstimate": 220,
+                            "works": 352412,
+                            "advanced": 352411,
+                            "needTime": 0,
+                            "needYield": 0,
+                            "saveState": 2753,
+                            "restoreState": 2753,
+                            "isEOF": 1,
+                            "invalidates": 0,
+                            "keyPattern": {
+                                "agent": 1
+                            },
+                            "indexName": "agent_1",
+                            "isMultiKey": false,
+                            "isUnique": false,
+                            "isSparse": true,
+                            "isPartial": false,
+                            "indexVersion": 1,
+                            "direction": "forward",
+                            "indexBounds": {
+                                "agent": [
+                                    "[\"agent_fd\", \"agent_fd\"]"
+                                ]
+                            },
+                            "keysExamined": 352411,
+                            "dupsTested": 0,
+                            "dupsDropped": 0,
+                            "seenInvalidated": 0
+                        }
+                    }
+                }
+            }
+        },
+        "ts": "2019-02-21T02:42:45.812Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "13780699276"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 353255,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 2759,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 5520
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 2760
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 2760
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 316,
+        "protocol": "op_query",
+        "millis": 206,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 190,
+            "works": 353257,
+            "advanced": 1,
+            "needTime": 353255,
+            "needYield": 0,
+            "saveState": 2759,
+            "restoreState": 2759,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "13780699276"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 190,
+                "works": 353256,
+                "advanced": 1,
+                "needTime": 353255,
+                "needYield": 0,
+                "saveState": 2759,
+                "restoreState": 2759,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 353255
+            }
+        },
+        "ts": "2019-02-21T02:42:46.035Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "13780699276"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 353255,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 2759,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 5520
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 2760
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 2760
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 316,
+        "protocol": "op_query",
+        "millis": 206,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 200,
+            "works": 353257,
+            "advanced": 1,
+            "needTime": 353255,
+            "needYield": 0,
+            "saveState": 2759,
+            "restoreState": 2759,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "13780699276"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 200,
+                "works": 353256,
+                "advanced": 1,
+                "needTime": 353255,
+                "needYield": 0,
+                "saveState": 2759,
+                "restoreState": 2759,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 353255
+            }
+        },
+        "ts": "2019-02-21T02:43:04.265Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "13780699276"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 353255,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 2759,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 5520
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 2760
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 2760
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 316,
+        "protocol": "op_query",
+        "millis": 209,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 190,
+            "works": 353257,
+            "advanced": 1,
+            "needTime": 353255,
+            "needYield": 0,
+            "saveState": 2759,
+            "restoreState": 2759,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "13780699276"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 190,
+                "works": 353256,
+                "advanced": 1,
+                "needTime": 353255,
+                "needYield": 0,
+                "saveState": 2759,
+                "restoreState": 2759,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 353255
+            }
+        },
+        "ts": "2019-02-21T02:43:18.182Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "13780699276"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 353255,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 2759,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 5520
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 2760
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 2760
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 316,
+        "protocol": "op_query",
+        "millis": 204,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 160,
+            "works": 353257,
+            "advanced": 1,
+            "needTime": 353255,
+            "needYield": 0,
+            "saveState": 2759,
+            "restoreState": 2759,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "13780699276"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 160,
+                "works": 353256,
+                "advanced": 1,
+                "needTime": 353255,
+                "needYield": 0,
+                "saveState": 2759,
+                "restoreState": 2759,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 353255
+            }
+        },
+        "ts": "2019-02-21T02:43:25.768Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.tasks",
+        "query": {
+            "find": "tasks",
+            "filter": {
+                "uid": "hpiZwTvNT8sLMcevm",
+                "agent": "agent_fd",
+                "step": {
+                    "$in": [
+                        "DOWNLOAD",
+                        "FINISH"
+                    ]
+                }
+            },
+            "sort": {
+                "updated_at": -1
+            },
+            "projection": {
+                "device": 1
+            },
+            "limit": 10
+        },
+        "keysExamined": 352416,
+        "docsExamined": 352416,
+        "hasSortStage": true,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 2753,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 5508
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 2754
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 2754
+                }
+            }
+        },
+        "nreturned": 10,
+        "responseLength": 595,
+        "protocol": "op_query",
+        "millis": 924,
+        "execStats": {
+            "stage": "PROJECTION",
+            "nReturned": 10,
+            "executionTimeMillisEstimate": 820,
+            "works": 352429,
+            "advanced": 10,
+            "needTime": 352418,
+            "needYield": 0,
+            "saveState": 2753,
+            "restoreState": 2753,
+            "isEOF": 1,
+            "invalidates": 0,
+            "transformBy": {
+                "device": 1
+            },
+            "inputStage": {
+                "stage": "SORT",
+                "nReturned": 10,
+                "executionTimeMillisEstimate": 820,
+                "works": 352429,
+                "advanced": 10,
+                "needTime": 352418,
+                "needYield": 0,
+                "saveState": 2753,
+                "restoreState": 2753,
+                "isEOF": 1,
+                "invalidates": 0,
+                "sortPattern": {
+                    "updated_at": -1
+                },
+                "memUsage": 8606,
+                "memLimit": 33554432,
+                "limitAmount": 10,
+                "inputStage": {
+                    "stage": "SORT_KEY_GENERATOR",
+                    "nReturned": 0,
+                    "executionTimeMillisEstimate": 820,
+                    "works": 352418,
+                    "advanced": 0,
+                    "needTime": 352407,
+                    "needYield": 0,
+                    "saveState": 2753,
+                    "restoreState": 2753,
+                    "isEOF": 1,
+                    "invalidates": 0,
+                    "inputStage": {
+                        "stage": "FETCH",
+                        "filter": {
+                            "$and": [
+                                {
+                                    "uid": {
+                                        "$eq": "hpiZwTvNT8sLMcevm"
+                                    }
+                                },
+                                {
+                                    "step": {
+                                        "$in": [
+                                            "DOWNLOAD",
+                                            "FINISH"
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "nReturned": 10,
+                        "executionTimeMillisEstimate": 810,
+                        "works": 352417,
+                        "advanced": 10,
+                        "needTime": 352406,
+                        "needYield": 0,
+                        "saveState": 2753,
+                        "restoreState": 2753,
+                        "isEOF": 1,
+                        "invalidates": 0,
+                        "docsExamined": 352416,
+                        "alreadyHasObj": 0,
+                        "inputStage": {
+                            "stage": "IXSCAN",
+                            "nReturned": 352416,
+                            "executionTimeMillisEstimate": 170,
+                            "works": 352417,
+                            "advanced": 352416,
+                            "needTime": 0,
+                            "needYield": 0,
+                            "saveState": 2753,
+                            "restoreState": 2753,
+                            "isEOF": 1,
+                            "invalidates": 0,
+                            "keyPattern": {
+                                "agent": 1
+                            },
+                            "indexName": "agent_1",
+                            "isMultiKey": false,
+                            "isUnique": false,
+                            "isSparse": true,
+                            "isPartial": false,
+                            "indexVersion": 1,
+                            "direction": "forward",
+                            "indexBounds": {
+                                "agent": [
+                                    "[\"agent_fd\", \"agent_fd\"]"
+                                ]
+                            },
+                            "keysExamined": 352416,
+                            "dupsTested": 0,
+                            "dupsDropped": 0,
+                            "seenInvalidated": 0
+                        }
+                    }
+                }
+            }
+        },
+        "ts": "2019-02-21T02:43:58.065Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "15077170214"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 786389,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 6143,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 12288
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            }
+        },
+        "nreturned": 0,
+        "responseLength": 115,
+        "protocol": "op_query",
+        "millis": 553,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 0,
+            "executionTimeMillisEstimate": 510,
+            "works": 786391,
+            "advanced": 0,
+            "needTime": 786390,
+            "needYield": 0,
+            "saveState": 6143,
+            "restoreState": 6143,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "15077170214"
+                    }
+                },
+                "nReturned": 0,
+                "executionTimeMillisEstimate": 500,
+                "works": 786391,
+                "advanced": 0,
+                "needTime": 786390,
+                "needYield": 0,
+                "saveState": 6143,
+                "restoreState": 6143,
+                "isEOF": 1,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 786389
+            }
+        },
+        "ts": "2019-02-21T02:43:59.324Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "15823889172"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 459347,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 3588,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 7178
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 3589
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 3589
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 264,
+        "protocol": "op_query",
+        "millis": 294,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 282,
+            "works": 459349,
+            "advanced": 1,
+            "needTime": 459347,
+            "needYield": 0,
+            "saveState": 3588,
+            "restoreState": 3588,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "15823889172"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 282,
+                "works": 459348,
+                "advanced": 1,
+                "needTime": 459347,
+                "needYield": 0,
+                "saveState": 3588,
+                "restoreState": 3588,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 459347
+            }
+        },
+        "ts": "2019-02-21T02:44:10.622Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "15077170214"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 786390,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 6143,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 12288
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 264,
+        "protocol": "op_query",
+        "millis": 556,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 500,
+            "works": 786392,
+            "advanced": 1,
+            "needTime": 786390,
+            "needYield": 0,
+            "saveState": 6143,
+            "restoreState": 6143,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "15077170214"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 490,
+                "works": 786391,
+                "advanced": 1,
+                "needTime": 786390,
+                "needYield": 0,
+                "saveState": 6143,
+                "restoreState": 6143,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 786390
+            }
+        },
+        "ts": "2019-02-21T02:44:11.999Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "15823889172"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 459347,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 3588,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 7178
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 3589
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 3589
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 264,
+        "protocol": "op_query",
+        "millis": 268,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 260,
+            "works": 459349,
+            "advanced": 1,
+            "needTime": 459347,
+            "needYield": 0,
+            "saveState": 3588,
+            "restoreState": 3588,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "15823889172"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 250,
+                "works": 459348,
+                "advanced": 1,
+                "needTime": 459347,
+                "needYield": 0,
+                "saveState": 3588,
+                "restoreState": 3588,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 459347
+            }
+        },
+        "ts": "2019-02-21T02:44:12.284Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "15077170214"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 786390,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 6143,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 12288
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 264,
+        "protocol": "op_query",
+        "millis": 576,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 510,
+            "works": 786392,
+            "advanced": 1,
+            "needTime": 786390,
+            "needYield": 0,
+            "saveState": 6143,
+            "restoreState": 6143,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "15077170214"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 500,
+                "works": 786391,
+                "advanced": 1,
+                "needTime": 786390,
+                "needYield": 0,
+                "saveState": 6143,
+                "restoreState": 6143,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 786390
+            }
+        },
+        "ts": "2019-02-21T02:44:22.965Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.tasks",
+        "query": {
+            "find": "tasks",
+            "filter": {
+                "uid": "6s5EziPR7ELNBsAxK",
+                "agent": "agent_fd",
+                "step": {
+                    "$in": [
+                        "DOWNLOAD",
+                        "FINISH"
+                    ]
+                }
+            },
+            "sort": {
+                "updated_at": -1
+            },
+            "projection": {
+                "device": 1
+            },
+            "limit": 10
+        },
+        "keysExamined": 352424,
+        "docsExamined": 352424,
+        "hasSortStage": true,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 2753,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 5508
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 2754
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 2754
+                }
+            }
+        },
+        "nreturned": 2,
+        "responseLength": 211,
+        "protocol": "op_query",
+        "millis": 909,
+        "execStats": {
+            "stage": "PROJECTION",
+            "nReturned": 2,
+            "executionTimeMillisEstimate": 866,
+            "works": 352429,
+            "advanced": 2,
+            "needTime": 352426,
+            "needYield": 0,
+            "saveState": 2753,
+            "restoreState": 2753,
+            "isEOF": 1,
+            "invalidates": 0,
+            "transformBy": {
+                "device": 1
+            },
+            "inputStage": {
+                "stage": "SORT",
+                "nReturned": 2,
+                "executionTimeMillisEstimate": 866,
+                "works": 352429,
+                "advanced": 2,
+                "needTime": 352426,
+                "needYield": 0,
+                "saveState": 2753,
+                "restoreState": 2753,
+                "isEOF": 1,
+                "invalidates": 0,
+                "sortPattern": {
+                    "updated_at": -1
+                },
+                "memUsage": 1420,
+                "memLimit": 33554432,
+                "limitAmount": 10,
+                "inputStage": {
+                    "stage": "SORT_KEY_GENERATOR",
+                    "nReturned": 0,
+                    "executionTimeMillisEstimate": 856,
+                    "works": 352426,
+                    "advanced": 0,
+                    "needTime": 352423,
+                    "needYield": 0,
+                    "saveState": 2753,
+                    "restoreState": 2753,
+                    "isEOF": 1,
+                    "invalidates": 0,
+                    "inputStage": {
+                        "stage": "FETCH",
+                        "filter": {
+                            "$and": [
+                                {
+                                    "uid": {
+                                        "$eq": "6s5EziPR7ELNBsAxK"
+                                    }
+                                },
+                                {
+                                    "step": {
+                                        "$in": [
+                                            "DOWNLOAD",
+                                            "FINISH"
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "nReturned": 2,
+                        "executionTimeMillisEstimate": 836,
+                        "works": 352425,
+                        "advanced": 2,
+                        "needTime": 352422,
+                        "needYield": 0,
+                        "saveState": 2753,
+                        "restoreState": 2753,
+                        "isEOF": 1,
+                        "invalidates": 0,
+                        "docsExamined": 352424,
+                        "alreadyHasObj": 0,
+                        "inputStage": {
+                            "stage": "IXSCAN",
+                            "nReturned": 352424,
+                            "executionTimeMillisEstimate": 118,
+                            "works": 352425,
+                            "advanced": 352424,
+                            "needTime": 0,
+                            "needYield": 0,
+                            "saveState": 2753,
+                            "restoreState": 2753,
+                            "isEOF": 1,
+                            "invalidates": 0,
+                            "keyPattern": {
+                                "agent": 1
+                            },
+                            "indexName": "agent_1",
+                            "isMultiKey": false,
+                            "isUnique": false,
+                            "isSparse": true,
+                            "isPartial": false,
+                            "indexVersion": 1,
+                            "direction": "forward",
+                            "indexBounds": {
+                                "agent": [
+                                    "[\"agent_fd\", \"agent_fd\"]"
+                                ]
+                            },
+                            "keysExamined": 352424,
+                            "dupsTested": 0,
+                            "dupsDropped": 0,
+                            "seenInvalidated": 0
+                        }
+                    }
+                }
+            }
+        },
+        "ts": "2019-02-21T02:44:25.925Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "15823889172"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 459347,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 3588,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 7178
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 3589
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 3589
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 264,
+        "protocol": "op_query",
+        "millis": 260,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 240,
+            "works": 459349,
+            "advanced": 1,
+            "needTime": 459347,
+            "needYield": 0,
+            "saveState": 3588,
+            "restoreState": 3588,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "15823889172"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 240,
+                "works": 459348,
+                "advanced": 1,
+                "needTime": 459347,
+                "needYield": 0,
+                "saveState": 3588,
+                "restoreState": 3588,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 459347
+            }
+        },
+        "ts": "2019-02-21T02:44:26.194Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "15077170214"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 786390,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 6143,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 12288
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 264,
+        "protocol": "op_query",
+        "millis": 553,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 510,
+            "works": 786392,
+            "advanced": 1,
+            "needTime": 786390,
+            "needYield": 0,
+            "saveState": 6143,
+            "restoreState": 6143,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "15077170214"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 500,
+                "works": 786391,
+                "advanced": 1,
+                "needTime": 786390,
+                "needYield": 0,
+                "saveState": 6143,
+                "restoreState": 6143,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 786390
+            }
+        },
+        "ts": "2019-02-21T02:44:32.374Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.tasks",
+        "query": {
+            "find": "tasks",
+            "filter": {
+                "kind": "gxb_alipay",
+                "agent": "agent_fd",
+                "deleted": 1,
+                "step": "FINISH",
+                "opts.phone": "15077170214",
+                "opts.idcard": "450621197902270019"
+            },
+            "sort": {
+                "updated_at": -1
+            },
+            "limit": 1
+        },
+        "keysExamined": 23212,
+        "docsExamined": 23212,
+        "hasSortStage": true,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 181,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 364
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 182
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 182
+                }
+            }
+        },
+        "nreturned": 0,
+        "responseLength": 115,
+        "protocol": "op_query",
+        "millis": 100,
+        "execStats": {
+            "stage": "CACHED_PLAN",
+            "nReturned": 0,
+            "executionTimeMillisEstimate": 100,
+            "works": 1,
+            "advanced": 0,
+            "needTime": 0,
+            "needYield": 0,
+            "saveState": 181,
+            "restoreState": 181,
+            "isEOF": 1,
+            "invalidates": 0,
+            "inputStage": {
+                "stage": "SORT",
+                "nReturned": 0,
+                "executionTimeMillisEstimate": 100,
+                "works": 23215,
+                "advanced": 0,
+                "needTime": 23214,
+                "needYield": 0,
+                "saveState": 181,
+                "restoreState": 181,
+                "isEOF": 1,
+                "invalidates": 0,
+                "sortPattern": {
+                    "updated_at": -1
+                },
+                "memUsage": 0,
+                "memLimit": 33554432,
+                "limitAmount": 1,
+                "inputStage": {
+                    "stage": "SORT_KEY_GENERATOR",
+                    "nReturned": 0,
+                    "executionTimeMillisEstimate": 100,
+                    "works": 23214,
+                    "advanced": 0,
+                    "needTime": 23213,
+                    "needYield": 0,
+                    "saveState": 181,
+                    "restoreState": 181,
+                    "isEOF": 1,
+                    "invalidates": 0,
+                    "inputStage": {
+                        "stage": "FETCH",
+                        "filter": {
+                            "$and": [
+                                {
+                                    "agent": {
+                                        "$eq": "agent_fd"
+                                    }
+                                },
+                                {
+                                    "deleted": {
+                                        "$eq": 1
+                                    }
+                                },
+                                {
+                                    "opts.idcard": {
+                                        "$eq": "450621197902270019"
+                                    }
+                                },
+                                {
+                                    "opts.phone": {
+                                        "$eq": "15077170214"
+                                    }
+                                },
+                                {
+                                    "step": {
+                                        "$eq": "FINISH"
+                                    }
+                                }
+                            ]
+                        },
+                        "nReturned": 0,
+                        "executionTimeMillisEstimate": 100,
+                        "works": 23213,
+                        "advanced": 0,
+                        "needTime": 23212,
+                        "needYield": 0,
+                        "saveState": 181,
+                        "restoreState": 181,
+                        "isEOF": 1,
+                        "invalidates": 0,
+                        "docsExamined": 23212,
+                        "alreadyHasObj": 0,
+                        "inputStage": {
+                            "stage": "IXSCAN",
+                            "nReturned": 23212,
+                            "executionTimeMillisEstimate": 10,
+                            "works": 23213,
+                            "advanced": 23212,
+                            "needTime": 0,
+                            "needYield": 0,
+                            "saveState": 181,
+                            "restoreState": 181,
+                            "isEOF": 1,
+                            "invalidates": 0,
+                            "keyPattern": {
+                                "kind": 1
+                            },
+                            "indexName": "kind_1",
+                            "isMultiKey": false,
+                            "isUnique": false,
+                            "isSparse": true,
+                            "isPartial": false,
+                            "indexVersion": 1,
+                            "direction": "forward",
+                            "indexBounds": {
+                                "kind": [
+                                    "[\"gxb_alipay\", \"gxb_alipay\"]"
+                                ]
+                            },
+                            "keysExamined": 23212,
+                            "dupsTested": 0,
+                            "dupsDropped": 0,
+                            "seenInvalidated": 0
+                        }
+                    }
+                }
+            }
+        },
+        "ts": "2019-02-21T02:44:45.070Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "13780699276"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 353255,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 2759,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 5520
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 2760
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 2760
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 316,
+        "protocol": "op_query",
+        "millis": 201,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 180,
+            "works": 353257,
+            "advanced": 1,
+            "needTime": 353255,
+            "needYield": 0,
+            "saveState": 2759,
+            "restoreState": 2759,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "13780699276"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 180,
+                "works": 353256,
+                "advanced": 1,
+                "needTime": 353255,
+                "needYield": 0,
+                "saveState": 2759,
+                "restoreState": 2759,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 353255
+            }
+        },
+        "ts": "2019-02-21T02:45:29.712Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "13780699276"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 353255,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 2759,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 5520
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 2760
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 2760
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 316,
+        "protocol": "op_query",
+        "millis": 209,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 200,
+            "works": 353257,
+            "advanced": 1,
+            "needTime": 353255,
+            "needYield": 0,
+            "saveState": 2759,
+            "restoreState": 2759,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "13780699276"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 200,
+                "works": 353256,
+                "advanced": 1,
+                "needTime": 353255,
+                "needYield": 0,
+                "saveState": 2759,
+                "restoreState": 2759,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 353255
+            }
+        },
+        "ts": "2019-02-21T02:45:51.438Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "13722441060"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 786390,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 6143,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 12288
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            }
+        },
+        "nreturned": 0,
+        "responseLength": 115,
+        "protocol": "op_query",
+        "millis": 562,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 0,
+            "executionTimeMillisEstimate": 530,
+            "works": 786392,
+            "advanced": 0,
+            "needTime": 786391,
+            "needYield": 0,
+            "saveState": 6143,
+            "restoreState": 6143,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "13722441060"
+                    }
+                },
+                "nReturned": 0,
+                "executionTimeMillisEstimate": 520,
+                "works": 786392,
+                "advanced": 0,
+                "needTime": 786391,
+                "needYield": 0,
+                "saveState": 6143,
+                "restoreState": 6143,
+                "isEOF": 1,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 786390
+            }
+        },
+        "ts": "2019-02-21T02:46:06.291Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "17359877870"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 786391,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 6143,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 12288
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            }
+        },
+        "nreturned": 0,
+        "responseLength": 115,
+        "protocol": "op_query",
+        "millis": 561,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 0,
+            "executionTimeMillisEstimate": 500,
+            "works": 786393,
+            "advanced": 0,
+            "needTime": 786392,
+            "needYield": 0,
+            "saveState": 6143,
+            "restoreState": 6143,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "17359877870"
+                    }
+                },
+                "nReturned": 0,
+                "executionTimeMillisEstimate": 500,
+                "works": 786393,
+                "advanced": 0,
+                "needTime": 786392,
+                "needYield": 0,
+                "saveState": 6143,
+                "restoreState": 6143,
+                "isEOF": 1,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 786391
+            }
+        },
+        "ts": "2019-02-21T02:46:09.434Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "13780699276"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 353255,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 2759,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 5520
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 2760
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 2760
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 316,
+        "protocol": "op_query",
+        "millis": 212,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 189,
+            "works": 353257,
+            "advanced": 1,
+            "needTime": 353255,
+            "needYield": 0,
+            "saveState": 2759,
+            "restoreState": 2759,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "13780699276"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 179,
+                "works": 353256,
+                "advanced": 1,
+                "needTime": 353255,
+                "needYield": 0,
+                "saveState": 2759,
+                "restoreState": 2759,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 353255
+            }
+        },
+        "ts": "2019-02-21T02:46:12.810Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "13722441060"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 786391,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 6143,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 12288
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 264,
+        "protocol": "op_query",
+        "millis": 576,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 560,
+            "works": 786393,
+            "advanced": 1,
+            "needTime": 786391,
+            "needYield": 0,
+            "saveState": 6143,
+            "restoreState": 6143,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "13722441060"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 560,
+                "works": 786392,
+                "advanced": 1,
+                "needTime": 786391,
+                "needYield": 0,
+                "saveState": 6143,
+                "restoreState": 6143,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 786391
+            }
+        },
+        "ts": "2019-02-21T02:46:18.492Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "13722441060"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 786391,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 6143,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 12288
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 264,
+        "protocol": "op_query",
+        "millis": 535,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 510,
+            "works": 786393,
+            "advanced": 1,
+            "needTime": 786391,
+            "needYield": 0,
+            "saveState": 6143,
+            "restoreState": 6143,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "13722441060"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 490,
+                "works": 786392,
+                "advanced": 1,
+                "needTime": 786391,
+                "needYield": 0,
+                "saveState": 6143,
+                "restoreState": 6143,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 786391
+            }
+        },
+        "ts": "2019-02-21T02:46:30.562Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "13722441060"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 786391,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 6143,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 12288
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 264,
+        "protocol": "op_query",
+        "millis": 623,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 560,
+            "works": 786393,
+            "advanced": 1,
+            "needTime": 786391,
+            "needYield": 0,
+            "saveState": 6143,
+            "restoreState": 6143,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "13722441060"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 560,
+                "works": 786392,
+                "advanced": 1,
+                "needTime": 786391,
+                "needYield": 0,
+                "saveState": 6143,
+                "restoreState": 6143,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 786391
+            }
+        },
+        "ts": "2019-02-21T02:46:39.340Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.tasks",
+        "query": {
+            "find": "tasks",
+            "filter": {
+                "uid": "gcsuqBf2gG2aFLKtz",
+                "agent": "agent_fd",
+                "step": {
+                    "$in": [
+                        "DOWNLOAD",
+                        "FINISH"
+                    ]
+                }
+            },
+            "sort": {
+                "updated_at": -1
+            },
+            "projection": {
+                "device": 1
+            },
+            "limit": 10
+        },
+        "keysExamined": 352435,
+        "docsExamined": 352435,
+        "hasSortStage": true,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 2753,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 5508
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 2754
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 2754
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 163,
+        "protocol": "op_query",
+        "millis": 898,
+        "execStats": {
+            "stage": "PROJECTION",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 870,
+            "works": 352439,
+            "advanced": 1,
+            "needTime": 352437,
+            "needYield": 0,
+            "saveState": 2753,
+            "restoreState": 2753,
+            "isEOF": 1,
+            "invalidates": 0,
+            "transformBy": {
+                "device": 1
+            },
+            "inputStage": {
+                "stage": "SORT",
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 860,
+                "works": 352439,
+                "advanced": 1,
+                "needTime": 352437,
+                "needYield": 0,
+                "saveState": 2753,
+                "restoreState": 2753,
+                "isEOF": 1,
+                "invalidates": 0,
+                "sortPattern": {
+                    "updated_at": -1
+                },
+                "memUsage": 1670,
+                "memLimit": 33554432,
+                "limitAmount": 10,
+                "inputStage": {
+                    "stage": "SORT_KEY_GENERATOR",
+                    "nReturned": 0,
+                    "executionTimeMillisEstimate": 860,
+                    "works": 352437,
+                    "advanced": 0,
+                    "needTime": 352435,
+                    "needYield": 0,
+                    "saveState": 2753,
+                    "restoreState": 2753,
+                    "isEOF": 1,
+                    "invalidates": 0,
+                    "inputStage": {
+                        "stage": "FETCH",
+                        "filter": {
+                            "$and": [
+                                {
+                                    "uid": {
+                                        "$eq": "gcsuqBf2gG2aFLKtz"
+                                    }
+                                },
+                                {
+                                    "step": {
+                                        "$in": [
+                                            "DOWNLOAD",
+                                            "FINISH"
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "nReturned": 1,
+                        "executionTimeMillisEstimate": 860,
+                        "works": 352436,
+                        "advanced": 1,
+                        "needTime": 352434,
+                        "needYield": 0,
+                        "saveState": 2753,
+                        "restoreState": 2753,
+                        "isEOF": 1,
+                        "invalidates": 0,
+                        "docsExamined": 352435,
+                        "alreadyHasObj": 0,
+                        "inputStage": {
+                            "stage": "IXSCAN",
+                            "nReturned": 352435,
+                            "executionTimeMillisEstimate": 150,
+                            "works": 352436,
+                            "advanced": 352435,
+                            "needTime": 0,
+                            "needYield": 0,
+                            "saveState": 2753,
+                            "restoreState": 2753,
+                            "isEOF": 1,
+                            "invalidates": 0,
+                            "keyPattern": {
+                                "agent": 1
+                            },
+                            "indexName": "agent_1",
+                            "isMultiKey": false,
+                            "isUnique": false,
+                            "isSparse": true,
+                            "isPartial": false,
+                            "indexVersion": 1,
+                            "direction": "forward",
+                            "indexBounds": {
+                                "agent": [
+                                    "[\"agent_fd\", \"agent_fd\"]"
+                                ]
+                            },
+                            "keysExamined": 352435,
+                            "dupsTested": 0,
+                            "dupsDropped": 0,
+                            "seenInvalidated": 0
+                        }
+                    }
+                }
+            }
+        },
+        "ts": "2019-02-21T02:46:51.725Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "17359877870"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 786392,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 6143,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 12288
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 264,
+        "protocol": "op_query",
+        "millis": 547,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 484,
+            "works": 786394,
+            "advanced": 1,
+            "needTime": 786392,
+            "needYield": 0,
+            "saveState": 6143,
+            "restoreState": 6143,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "17359877870"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 474,
+                "works": 786393,
+                "advanced": 1,
+                "needTime": 786392,
+                "needYield": 0,
+                "saveState": 6143,
+                "restoreState": 6143,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 786392
+            }
+        },
+        "ts": "2019-02-21T02:46:52.278Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "18779768589"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 786392,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 6143,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 12288
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            }
+        },
+        "nreturned": 0,
+        "responseLength": 115,
+        "protocol": "op_query",
+        "millis": 562,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 0,
+            "executionTimeMillisEstimate": 520,
+            "works": 786394,
+            "advanced": 0,
+            "needTime": 786393,
+            "needYield": 0,
+            "saveState": 6143,
+            "restoreState": 6143,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "18779768589"
+                    }
+                },
+                "nReturned": 0,
+                "executionTimeMillisEstimate": 510,
+                "works": 786394,
+                "advanced": 0,
+                "needTime": 786393,
+                "needYield": 0,
+                "saveState": 6143,
+                "restoreState": 6143,
+                "isEOF": 1,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 786392
+            }
+        },
+        "ts": "2019-02-21T02:46:58.916Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "17359877870"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 786392,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 6143,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 12288
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 264,
+        "protocol": "op_query",
+        "millis": 615,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 560,
+            "works": 786394,
+            "advanced": 1,
+            "needTime": 786392,
+            "needYield": 0,
+            "saveState": 6143,
+            "restoreState": 6143,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "17359877870"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 560,
+                "works": 786393,
+                "advanced": 1,
+                "needTime": 786392,
+                "needYield": 0,
+                "saveState": 6143,
+                "restoreState": 6143,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 786392
+            }
+        },
+        "ts": "2019-02-21T02:47:05.629Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "18779768589"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 786393,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 6143,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 12288
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 264,
+        "protocol": "op_query",
+        "millis": 552,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 500,
+            "works": 786395,
+            "advanced": 1,
+            "needTime": 786393,
+            "needYield": 0,
+            "saveState": 6143,
+            "restoreState": 6143,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "18779768589"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 500,
+                "works": 786394,
+                "advanced": 1,
+                "needTime": 786393,
+                "needYield": 0,
+                "saveState": 6143,
+                "restoreState": 6143,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 786393
+            }
+        },
+        "ts": "2019-02-21T02:47:10.969Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "17359877870"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 786392,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 6143,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 12288
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 264,
+        "protocol": "op_query",
+        "millis": 546,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 500,
+            "works": 786394,
+            "advanced": 1,
+            "needTime": 786392,
+            "needYield": 0,
+            "saveState": 6143,
+            "restoreState": 6143,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "17359877870"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 500,
+                "works": 786393,
+                "advanced": 1,
+                "needTime": 786392,
+                "needYield": 0,
+                "saveState": 6143,
+                "restoreState": 6143,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 786392
+            }
+        },
+        "ts": "2019-02-21T02:47:18.240Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "18779768589"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 786393,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 6143,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 12288
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 264,
+        "protocol": "op_query",
+        "millis": 566,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 520,
+            "works": 786395,
+            "advanced": 1,
+            "needTime": 786393,
+            "needYield": 0,
+            "saveState": 6143,
+            "restoreState": 6143,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "18779768589"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 500,
+                "works": 786394,
+                "advanced": 1,
+                "needTime": 786393,
+                "needYield": 0,
+                "saveState": 6143,
+                "restoreState": 6143,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 786393
+            }
+        },
+        "ts": "2019-02-21T02:47:23.221Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "17359877870"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 786392,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 6143,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 12288
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 264,
+        "protocol": "op_query",
+        "millis": 551,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 513,
+            "works": 786394,
+            "advanced": 1,
+            "needTime": 786392,
+            "needYield": 0,
+            "saveState": 6143,
+            "restoreState": 6143,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "17359877870"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 503,
+                "works": 786393,
+                "advanced": 1,
+                "needTime": 786392,
+                "needYield": 0,
+                "saveState": 6143,
+                "restoreState": 6143,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 786392
+            }
+        },
+        "ts": "2019-02-21T02:47:25.776Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    },
+    {
+        "op": "query",
+        "ns": "box.users",
+        "query": {
+            "find": "users",
+            "filter": {
+                "profile.mobile": "18779768589"
+            },
+            "limit": 1
+        },
+        "keysExamined": 0,
+        "docsExamined": 786393,
+        "cursorExhausted": true,
+        "keyUpdates": 0,
+        "writeConflicts": 0,
+        "numYield": 6143,
+        "locks": {
+            "Global": {
+                "acquireCount": {
+                    "r": 12288
+                }
+            },
+            "Database": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            },
+            "Collection": {
+                "acquireCount": {
+                    "r": 6144
+                }
+            }
+        },
+        "nreturned": 1,
+        "responseLength": 264,
+        "protocol": "op_query",
+        "millis": 553,
+        "execStats": {
+            "stage": "LIMIT",
+            "nReturned": 1,
+            "executionTimeMillisEstimate": 540,
+            "works": 786395,
+            "advanced": 1,
+            "needTime": 786393,
+            "needYield": 0,
+            "saveState": 6143,
+            "restoreState": 6143,
+            "isEOF": 1,
+            "invalidates": 0,
+            "limitAmount": 1,
+            "inputStage": {
+                "stage": "COLLSCAN",
+                "filter": {
+                    "profile.mobile": {
+                        "$eq": "18779768589"
+                    }
+                },
+                "nReturned": 1,
+                "executionTimeMillisEstimate": 540,
+                "works": 786394,
+                "advanced": 1,
+                "needTime": 786393,
+                "needYield": 0,
+                "saveState": 6143,
+                "restoreState": 6143,
+                "isEOF": 0,
+                "invalidates": 0,
+                "direction": "forward",
+                "docsExamined": 786393
+            }
+        },
+        "ts": "2019-02-21T02:47:31.489Z",
+        "client": "10.80.102.90",
+        "allUsers": [
+            {
+                "user": "box_admin_user",
+                "db": "box"
+            }
+        ],
+        "user": "box_admin_user@box"
+    }
+]
