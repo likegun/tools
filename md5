@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+'use strict';
+const crypto = require('crypto');
+const md5 = crypto.createHash('md5');
+
+function pbcopy(data) {
+    var proc = require('child_process').spawn('pbcopy'); 
+    proc.stdin.write(data); proc.stdin.end();
+}
+
+pbcopy(md5.update(process.argv[2]).digest('hex'));

@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+const crypto = require('crypto');
+const md5 = crypto.createHash('md5');
+function pbcopy(data) {
+    var proc = require('child_process').spawn('pbcopy'); 
+    proc.stdin.write(data); proc.stdin.end();
+}
+
+const text = `appKey=uK3gBgPS&appSecret=8e56a3b53aa641a483816765ac473603&t=${Date.now()}`;
+console.log(text);
+console.log(md5.update(text).digest('hex'))
