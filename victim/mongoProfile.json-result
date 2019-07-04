@@ -15,7 +15,7 @@
     "query": {
       "find": "nfcs_credit_report",
       "filter": {
-        "taskId": "5c6d1d70b8700c1b656682f2"
+        "taskId": ObjectId("5c6d1d70b8700c1b656682f2")
       },
       "sort": {},
       "projection": {},
@@ -23,7 +23,7 @@
     },
     "keysExamined": 0,
     "docsExamined": 1041165,
-    "millis": 5435
+    "millis": 5435 // 0
   },
   {
     "op": "query",
@@ -42,7 +42,7 @@
     },
     "keysExamined": 0,
     "docsExamined": 499246,
-    "millis": 759
+    "millis": 759 //8
   },
   {
     "op": "query",
@@ -61,7 +61,7 @@
     },
     "keysExamined": 0,
     "docsExamined": 29581,
-    "millis": 695
+    "millis": 695 //8
   },
   {
     "op": "query",
@@ -82,7 +82,7 @@
     },
     "keysExamined": 0,
     "docsExamined": 499246,
-    "millis": 690
+    "millis": 690 //8
   },
   {
     "op": "query",
